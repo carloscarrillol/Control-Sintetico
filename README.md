@@ -60,6 +60,55 @@ El método de control sintético está basado en la idea de que, cuando las unid
 $$\tau_{1t}=Y_{1t}^{I}-Y_{1t}^{N} \tag{1}$$
 Dado que la unidad $j=1$ es la que se expone a la intervención, entonces, obsevamos $Y_{1t}=Y_{1t}^{I}$ para $t>T_{0}$. Por lo que el reto será estimar correctamente $Y_{1t}^{N}$, que es, la trayectoria potencial de $Y_{1t}$ en ausencia de la intervención. 
 
+
+#### *2.3 Estimación:*
+
+Los estudios de casos comparativos (*Comparative Case Studies*) intentan reproducir $Y_{1t}^{N}$ utilizando una unidad no afectada o un número pequeño de unidades que tienen características similares a la unidad afectada. Cuando los datos consisten en entidades agregadas como regiones o países, es complicado encontrar regiones particulares no afectadas que provean de comparaciones adecuadas.
+
+Por otro lado, el método de control sintético se basa en la idea de que la combinación de unidades del *donor pool* podrían aproximar las características de la unidad afectada sustancialmente mejor que cualquier unidad por sí sola. Formalmente, un control sintético se representa como un vector de $J\times 1$ ponderadores $W=(\omega_{2},...,\omega_{J+1})^{T}$. Dado el vector $W$, los estimadores de control sintético de $Y_{1t}^{N}$ y $\tau_{1t}$ son, respectivamente,
+
+$$\hat{Y}_{1t}^{N}=\sum_{j=2}^{J+1}\omega_{j}Y_{jt} \tag{2}$$
+ y
+ 
+ $$\hat{\tau}_{1t}=Y_{1t}-\hat{Y}_{1t}^{N}\tag{3}$$
+
+Para evitar la extrapolación de las series necesitamos que
+
+* $\omega_{j}\geq 0$ para toda $j=2,...,J+1$
+* $\sum_{j=2}^{J+1}\omega_{j}=1$
+
+***Note que para que las restricciones anteriores podrían satisfacerse únicamente si las variables en los datos están rescalados adecuandamente para corregir las diferencias en el tamaño de las unidades***
+
+A continuación se presentan algunos ejemplos para la elección de los ponderadores:
+
+1) Un control sintético que asigna igual peso a cualquier unidad $\omega_{j}=1/J$ resulta en el siguiente estimador para $\tau_{1t}$
+$$\hat{\tau}_{1t}=Y_{1t}-\frac{1}{J}\sum_{j=2}^{J+1}Y_{jt}\tag{4}$$
+
+que genera una estimación como un promedio simple de todas las unidades en el *donor pool*.
+
+2) Promedio ponderado por población:
+$$\hat{\tau}_{1t}=Y_{1t}-\sum_{j=2}^{J+1}\omega_{j}^{pop}Y_{jt} \tag{5}$$
+donde $\omega_{j}^{pop}$ es la población de la unidad $j$ dividido entre el total de la población en el *donor pool*.
+
+3) Abadie, et.al., (2003) y Abadie, et. al., (2010) proponen elegir el control sintético $W=(\omega_{2}^{*},...,\omega_{J+1}^{*})^{T}$ que minimice:
+
+$$\| X_{1}-X_{0}W\| = \left(\sum_{h=1}^{k}\upsilon_{h}\left(X_{h1}-\omega_{2}X_{h2}-\cdots - \omega_{J+1}X_{hJ+1}\right)^{2}\right)^{1/2} \tag{6}$$
+
+$$\textit{s.a} \quad \quad \omega_{j}\geq 0 \quad j=2,...,J+1\quad ; \quad \quad \sum_{j=2}^{J+1}\omega_{j}=1$$
+por lo que el efecto estimado de tratamiento de la unidad tratada en el tiempo $t=T_{0}+1,T_{0}+2,...,T$ es 
+$$\hat{\tau}_{1t}=Y_{1t}-\sum_{j=2}^{J+1}\omega_{j}^{*}Y_{jt} \tag{7}$$
+Las constantes positivas $(\upsilon_{1},...,\upsilon_{k})=V$ en la ecuación (6) reflejan la importancia relativa control sintético en la reproducción de los valores de cada uno de los $k$ predictores para la unidad tratada, $X_{11},..,X_{k1}$.
+
+Una selección simple de $\upsilon_{h}\in V$ es la inversa de la varianza de $X_{h1},...,X_{hJ+1}$ que reescale $\left[X_{0}:X_{1}\right]$ de tal forma que tenga varianza unitaria.
+
+<br>
+<p style="text-align:center;">
+*Aún hay más sobre la elección de los ponderadores, pero creo que lo pondré en un update después*
+</p>
+<br>
+
+
+
 .
 .
 .
