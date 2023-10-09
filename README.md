@@ -129,7 +129,7 @@ donde,
 
 Una caracterización del sesgo de los estimadores de control sintetico generados por la ecuación (8) que reproduce las características de la unidad tratada se presenta como sigue:
 
-* Sea $X_{1}$ el vector que incluye $Z_{1}$ y los outcomes previos a la intevención (i.e., $Y_{1t}^{N}$ para $t<T_{0}$) para la unidad tratada,
+* Sea $X_{1}$ el vector que incluye $Z_{1}$ y los outcomes previos a la intevención (i.e., $Y_{1t}^{N}$ para $t\leqT_{0}-1$) para la unidad tratada,
 * Sea $X_{0}$ la matriz que recolecta las mismas variables para las unidades no afectadas.
 * Suponga que $X_{1}=X_{0}W^{*}$, que significa que el control sintético $W^{*}$ es capaz de reproducir las características de la unidad tratada.
 * Entonces, el sesgo de $\hat{\tau}_{it}$ está controlado por la razon entre la escala de los choques transitorios $\varepsilon_{it}$ y el numero de periodos previos a $T_{0}$. 
