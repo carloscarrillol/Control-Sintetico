@@ -108,6 +108,34 @@ Una selección simple de $\upsilon_{h}\in V$ es la inversa de la varianza de $X_
 <br>
 
 
+#### *2.3 Sesgo Limitado*
+
+Abadie, et. al., (2010) estudia las propiedades del sesgo de los estimadores generados por el método de control sintético. Para los casos en que $Y_{jt}^{N}$ es genrado por 1) un modelo lineal, o 2) un modelo de vector autorregresivo (VAR). Muestra que bajo ciertas condiciones los estimadores de control sintético generados por un modelo VAR son insesgados, mientras que proporcionan un límite para el sesgo generado por la estimación con el modelo lineal.
+
+
+<br>
+<p style="text-align:center;">
+*Esta nota se restringe al estudio del modelo de factor lineal que puede verse como una generalización del modelo de diferencias en diferencias. En otra entrada añadiré lo relatico a los modelos VAR que encuentre en Abadie, et. al. (2010)*
+</p>
+<br>
+
+Considere el siguiente modelo de factor lineal para $Y_{jt}^{N}$
+$$Y_{jt}^{N}=\delta_{t}+\theta_{t}Z_{j}+\lambda_{t}\mu_{j}+\varepsilon_{jt}\tag{8}$$
+donde,
+
+* $\delta_{t}$ es la tendencia lineal de la serie,
+* $Z_{j}$ y $\mu_{j}$ son predictores observados y no observados de $Y_{jt}^{N}$, respectivamente, con coeficientes $\theta_{t}$ y $\lambda_{t}$, y
+* $\varepsilon_{jt}$ es un choque transitorio con media cero.
+
+Una caracterización del sesgo de los estimadores de control sintetico generados por la ecuación (8) que reproduce las características de la unidad tratada se presenta como sigue:
+
+* Sea $X_{1}$ el vector que incluye $Z_{1}$ y los outcomes previos a la intevención (i.e., $Y_{1t}^{N}$ para $t<T_{0}$) para la unidad tratada,
+* Sea $X_{0}$ la matriz que recolecta las mismas variables para las unidades no afectadas.
+* Suponga que $X_{1}=X_{0}W^{*}$, que significa que el control sintético $W^{*}$ es capaz de reproducir las características de la unidad tratada.
+* Entonces, el sesgo de $\hat{\tau}_{it}$ está controlado por la razon entre la escala de los choques transitorios $\varepsilon_{it}$ y el numero de periodos previos a $T_{0}$. 
+* Por lo tanto, una recomendación sería obtener la mayor cantidad de observaciones previos al periodo de intervención.
+
+
 
 .
 .
