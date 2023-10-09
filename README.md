@@ -67,7 +67,7 @@ Los estudios de casos comparativos (*Comparative Case Studies*) intentan reprodu
 
 Por otro lado, el método de control sintético se basa en la idea de que la combinación de unidades del *donor pool* podrían aproximar las características de la unidad afectada sustancialmente mejor que cualquier unidad por sí sola. Formalmente, un control sintético se representa como un vector de $J\times 1$ ponderadores $W=(\omega_{2},...,\omega_{J+1})^{T}$. Dado el vector $W$, los estimadores de control sintético de $Y_{1t}^{N}$ y $\tau_{1t}$ son, respectivamente,
 
-$$ \hat{Y}_{1t}^{N}=\sum_{j=2}^{J+1}\omega_{j}Y_{jt} \tag{2} $$
+$$\hat{Y}_{1t}^{N}=\sum_{j=2}^{J+1}\omega_{j}Y_{jt} \tag{2}$$
  y
  
  $$\hat{\tau}_{1t}=Y_{1t}-\hat{Y}_{1t}^{N}\tag{3}$$
