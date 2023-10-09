@@ -75,7 +75,7 @@ $$\hat{Y}^{N}_{1t}=\sum_{j=2}^{J+1}\omega_{j}Y_{jt}\tag{2}$$
 Para evitar la extrapolación de las series necesitamos que
 
 * $\omega_{j}\geq 0$ para toda $j=2,...,J+1$
-* $\sum_{j=2}^{J+1}\omega_{j}=1$
+* $\sum_{j=2}^{J+1} \omega_{j}=1$
 
 ***Note que para que las restricciones anteriores podrían satisfacerse únicamente si las variables en los datos están rescalados adecuandamente para corregir las diferencias en el tamaño de las unidades***
 
