@@ -1,3 +1,5 @@
+#### https://rpubs.com/CarlosCarrillol/1096276
+
 ---
 title: "Control Sintético"
 output: html_notebook
@@ -176,16 +178,38 @@ X_{k1}-\omega_{2}X_{k2}-\cdots\omega_{J}X_{kJ+1}&\simeq 0
 * ***Horizonte Temporal***
 
 El efecto de algunas interacciones podría tardar en surgir o tener la magnitud suficiente para ser cuantitativamente detectada por los datos. Un enfoque obvio pero insatisfactorio para este problema es esperar hasta que los efectos de la intervención sigan su curso. Otro enfoque más proactivo es utilizar resultados sustitutos o indicadores principales de la variable de interés.
+<br><br><br>
 
+### *4. Conclusión*
 
-
-.
-.
-.
-
+Los controles sintéticos ofrecen muchas ventajas prácticas para la estimación de los efectos de intervenciones políticas y otros eventos de interés. Sin embargo, al igual que en cualquier otro procedimiento estadístico (y especialmente en aquellos destinados a estimar efectos causales), la credibilidad de los resultados depende crucialmente del nivel de diligencia en la aplicación del método y de si se cumplen los requisitos contextuales y de datos en la aplicación empírica en cuestión. En este artículo, enfatizo la idea de que las aplicaciones mecánicas de los controles sintéticos que no tienen en cuenta el contexto de la investigación o la naturaleza de los datos son empresas arriesgadas.
 
 
 
 <br><br><br>
+
+### *Referencias*
+
+* Abadie, Alberto. 2021. "Using Synthetic Controls: Feasibility, Data Requirements, and Methodological Aspects." Journal of Economic Literature, 59 (2): 391-425.
+
+* Alberto Abadie, Alexis Diamond & Jens Hainmueller (2010) Synthetic Control Methods for Comparative Case Studies: Estimating the Effect of California’s Tobacco Control Program, Journal of the American Statistical Association, 105:490, 493-505, DOI: 10.1198/jasa.2009.ap08746
+
+* Rubin, Donald B. 1974. “Estimating Causal Effects of Treatments in Randomized and Nonrandomized Studies.” Journal of Educational Psychology 66 (5): 688–701. 
+  
+  Rubin, Donald B. 1980. “Comment.” Journal of the American Statistical Association 75 (371): 591–93.
+
+
+
+<br><br><br>
+
+
+
+
+
+
+
+
+
+
 
 
