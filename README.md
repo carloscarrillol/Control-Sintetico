@@ -134,6 +134,48 @@ Una caracterización del sesgo de los estimadores de control sintetico generados
 * Suponga que $X_{1}=X_{0}W^{*}$, que significa que el control sintético $W^{*}$ es capaz de reproducir las características de la unidad tratada.
 * Entonces, el sesgo de $\hat{\tau}_{it}$ está controlado por la razon entre la escala de los choques transitorios $\varepsilon_{it}$ y el numero de periodos previos a $T_{0}$. 
 * Por lo tanto, una recomendación sería obtener la mayor cantidad de observaciones previos al periodo de intervención.
+<br><br><br>
+
+#### *3. Requerimientos Contextuales*
+
+En esta sección discutiremos los requerimientos contextuales, es decir, las condiciones necesarias en el contexto de la investigación bajo las cuales el control sintético es una herramienta adecuada para la evaluación de política. 
+<br>
+
+* ***Tamaño del Efecto y Volatilidad de la Serie***
+
+La naturaleza de esta condición estriba en el hecho de que los efectos pequeños serían indistinguibles de otros choques en la serie de interés de la unidad afectada, especialmente cuando la serie es altamente volátil. Las serie con alta volatilidad incrementan el riesgo de sobreajuste (*over-fitting*).
+
+* ***Disponibilidad del Grupo de Comparación***
+
+Es importante que no todas las unidades del grupo de donantes adopten intevenciones similares a la unidad de estudio en el periodo estudiado. Además es importante eliminar del *donor pool* cualquier unidad que pudo haber sufrido choques idiosincraticos fuertes a la serie de interés durante el periodo de estudio.
+
+Más aun, es importante restringir el grupo de donantes a unidades con características similares a las de la unidad afectada.
+
+* ***No Anticipación***
+
+Los estimadores de control sintético pueden estar sesgados si los agentes económicos con visipon de futuro reaccionan antes de que se de la intervención estudiada.
+
+* ***No Interferencia***
+
+En la sección 2.1 definimos el *outcome* potencial como $Y_{1t}^{I}$ y $Y_{it}^{N}$ únicamente en términos del estado de tratamiento para las unidades 1 e $i$, respectivamente, al tiempo $t$. Este es el supuesto de valor de tratamiento unitario estable de Rubin (1980), lo que implica que no hay interferencia entre las unidades. Esto es, las series de las uinidades son invariantes ante los tratamientos que reciben otras unidades.
+
+El supuesto de no interferencia puede forzarse en el diseño de estudio por descarte de aquellas unidades en el conjunto de donantes con *outcomes* posiblemente afectados por la intervención en la unidad de tratamiento.
+
+* ***Condición de Envolvente Convexo (Convex Hull)***
+
+Los estimadores de control sintético se predicen con la idea de que una combinación de unidades no afectadas pueden aproximar las características de la unidad afectada antes de la intervención. Una vez que el control sintético se contruye se puede verificar que las diferencias en las características de la unidad afectada y el control sintético son pequeñas, es decir,
+
+\begin{align}
+X_{11}-\omega_{2}X_{12}-\cdots\omega_{J}X_{1J+1}&\simeq 0\\
+X_{21}-\omega_{2}X_{22}-\cdots\omega_{J}X_{2J+1}&\simeq 0\\
+&\vdots\\
+X_{k1}-\omega_{2}X_{k2}-\cdots\omega_{J}X_{kJ+1}&\simeq 0
+\end{align}
+
+
+* ***Horizonte Temporal***
+
+El efecto de algunas interacciones podría tardar en surgir o tener la magnitud suficiente para ser cuantitativamente detectada por los datos. Un enfoque obvio pero insatisfactorio para este problema es esperar hasta que los efectos de la intervención sigan su curso. Otro enfoque más proactivo es utilizar resultados sustitutos o indicadores principales de la variable de interés.
 
 
 
