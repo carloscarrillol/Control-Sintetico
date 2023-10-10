@@ -1,9 +1,10 @@
-#### https://rpubs.com/CarlosCarrillol/1096276
-
 ---
 title: "Control Sintético"
 output: html_notebook
 ---
+
+Aquí se ve más bonito:
+#### https://rpubs.com/CarlosCarrillol/1096276
 
 <br><br><br><br><br><br>
 
