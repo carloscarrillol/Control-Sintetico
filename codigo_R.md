@@ -1,5 +1,5 @@
 ---
-title: "R Notebook"
+title: "Control Sintético"
 output: html_notebook
 ---
 
