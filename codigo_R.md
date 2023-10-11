@@ -4,7 +4,7 @@ output: html_notebook
 ---
 
 <br><br><br>
-
+ 
 <p style="text-align:center;">
 *Quiero que quede claro que no tengo idea de lo que estoy apunto de escribir, únicamente es una compilación de documentos que he encontrado sobre modelado de control sintético. Por lo tanto, descubriremos juntos y al mismo tiempo (eso no es verdad) que hace cada una de las siguientes lineas. Por favor no juzgues, tuve la decencia de advertirte.*
 </p>
