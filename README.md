@@ -1,6 +1,6 @@
 ---
 title: "Control Sintético"
-output: html_notebook
+output: github_document
 ---
 
 Aquí se ve más bonito:
