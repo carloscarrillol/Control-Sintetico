@@ -129,9 +129,32 @@ X0 <- rbind(X2.1,X3.1,X4.1,X5.1,X6.1,X7.1,X8.1)
 X0
 ```
 
+Ahora vamos a preparar de manera correcta los datos utilizando la función `dataprep`:
+
+```{r}
+dataprep.out <- dataprep(foo = synth.data,                        #Cargar los datos
+                         predictors = c("X1", "X2", "X3"),        #Matriz de predictores 
+                         predictors.op = "mean",                  #El operador que se utilizará en los predictores 
+                         dependent = "Y",                         #Outcome
+                         unit.variable = "unit.num",              
+                         time.variable = "year",                  #Frecuencia temporal de la base
+                         special.predictors = list(               #Predictores numéricos adicionales
+                           list("Y", 1991, "mean"),               #que asocia periodos previos al
+                           list("Y", 1985, "mean"),               #tratamiento y operadores "mean".
+                           list("Y", 1980, "mean")),
+                         treatment.identifier = 7,                #id de la unidad de tratamiento
+                         controls.identifier = c(2, 13, 17, 
+                                                 29, 32, 36, 38),  #id de las unidades de control
+                         time.predictors.prior = c(1980:1989),    #Un vector numérico que contiene los periodos previos al tratamiento sobre los que el predictor será promediado.
+                         time.optimize.ssr = c(1980:1989),        #Un vector numérico que identifica los periodos de la variable dependiente sobre los cuales la función de perdida se minimiza (i.e., la minimización de la suma de los residuos al cuadrado entre la unidad de tratamiento y la unidad de control.)
+                         unit.names.variable = "name",            #Nombre de las unidades de control
+                         time.plot = 1980:1996)                   #Un vector que identifica los períodos durante los cuales se trazarán los resultados con gaps.plot y path.plot.
+
+```
+Note que para generar las matrices $X_{0}$ tomamos los promedios por año de las observaciones para cada variable $X_{j}$ con $j=1,2,3$ y las variables especiales son simplemente las observaciones para $Y$ de los años 1980, 1985 y 1990. 
                                                                                                                                                                                                                                
 .
-.                                                                                                                                                                                                                  
+.                                                                                    
 .                                                                                                                                                                                                                               
                                                                                                                                                                                                                                
                                                                                                                                                                                                                                
