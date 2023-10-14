@@ -152,7 +152,23 @@ dataprep.out <- dataprep(foo = synth.data,                        #Cargar los da
 
 ```
 Note que para generar las matrices $X_{0}$ tomamos los promedios por año de las observaciones para cada variable $X_{j}$ con $j=1,2,3$ y las variables especiales son simplemente las observaciones para $Y$ de los años 1980, 1985 y 1990. 
+                                                                                                                              
                                                                                                                                                                                                                                
+ Paga generar el control sintetico, es decir el vector de ponderadores $W=(\omega_{2},...,\omega_{J+1})^{T}$ tal que 
+ $$\hat{Y}_{1t}=\sum_{j=2}^{J+1}\omega_{j}Y_{jt}$$
+
+donde $Y_{1t}^{N}$ es el outcome de interés en ausencia de la intevención.
+ 
+ ```{r}
+synth.out <- synth(dataprep.out)            #Genera el vector de 6x1 entradas del control sintetico para cada predictor
+
+round(synth.out$solution.w,2)               #Redondea y presenta las variables a dos caracteres después del punto decimal
+
+
+gaps<- dataprep.out$Y1plot-(
+        dataprep.out$Y0plot%*%synth.out$solution.w)  #Esta ecuación es simplemente el tau_1t para todos los periodos.
+```
+Estos ponderadores son tales que 1) $\sum_{j=2}^{J+1}\omega_{j}=1$ y 2) $\omega_{j}\leq 0$ para $j=2,...,J+1$.                                                                                                                                                                                                                               
 .
 .                                                                                    
 .                                                                                                                                                                                                                               
