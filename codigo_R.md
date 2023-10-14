@@ -170,7 +170,7 @@ round(synth.out$solution.w,2)               #Redondea y presenta las variables a
 gaps<- dataprep.out$Y1plot-(
         dataprep.out$Y0plot%*%synth.out$solution.w)  #Esta ecuación es simplemente el tau_1t para todos los periodos.
 ```
-Estos ponderadores son tales que 1) $\sum_{j=2}^{J+1}\omega_{j}=1$ y 2) $\omega_{j}\leq 0$ para $j=2,...,J+1$.                                                                                                                                                                                                                               
+Estos ponderadores son tales que 1) $\sum_{j} \omega_{j}=1$ y 2) $\omega_{j}\leq 0$ para $j=2,...,J+1$.                                                                                                                                                                                                                               
 .
 .                                                                                    
 .                                                                                                                                                                                                                               
