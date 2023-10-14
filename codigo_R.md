@@ -156,11 +156,10 @@ Note que para generar las matrices $X_{0}$ tomamos los promedios por año de las
                                                                                                                                                                                                                                
  Paga generar el control sintetico, es decir el vector de ponderadores $W=(\omega_{2},...,\omega_{J+1})^{T}$ tal que 
  
- \begin{align}
- \hat{Y}_{1t}=\sum_{j=2}^{J+1}\omega_{j}Y_{jt}
- \end{align}
+ $$Y_{1t}^{N}=\sum_{j=2}^{J+1} \omega_{j} Y_{jt}$$
 
-donde $Y_{1t}^{N}$ es el outcome de interés en ausencia de la intevención.
+
+donde $Y_{1t}^{N}$ es el outcome de interés en ausencia de la intevención, para $t>T_{0}$, el periodo en el que ocurre la intervención.
  
  ```{r}
 synth.out <- synth(dataprep.out)            #Genera el vector de 6x1 entradas del control sintetico para cada predictor
