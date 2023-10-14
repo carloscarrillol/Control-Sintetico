@@ -156,7 +156,9 @@ Note que para generar las matrices $X_{0}$ tomamos los promedios por año de las
                                                                                                                                                                                                                                
  Paga generar el control sintetico, es decir el vector de ponderadores $W=(\omega_{2},...,\omega_{J+1})^{T}$ tal que 
  
- $$\hat{Y}_{1t}=\sum_{j=2}^{J+1}\omega_{j}Y_{jt}$$
+ \begin{align}
+ \hat{Y}_{1t}=\sum_{j=2}^{J+1}\omega_{j}Y_{jt}
+ \end{align}
 
 donde $Y_{1t}^{N}$ es el outcome de interés en ausencia de la intevención.
  
