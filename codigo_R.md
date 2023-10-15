@@ -154,7 +154,7 @@ dataprep.out <- dataprep(foo = synth.data,                        #Cargar los da
 Note que para generar las matrices $X_{0}$ tomamos los promedios por año de las observaciones para cada variable $X_{j}$ con $j=1,2,3$ y las variables especiales son simplemente las observaciones para $Y$ de los años 1980, 1985 y 1990. 
                                                                                                                               
                                                                                                                                                                                                                                
- Paga generar el control sintetico, es decir el vector de ponderadores $W=(\omega_{2},...,\omega_{J+1})^{T}$ tal que 
+ Para generar el control sintetico, es decir el vector de ponderadores $W=(\omega_{2},...,\omega_{J+1})^{T}$ tal que 
  
  $$Y_{1t}^{N}=\sum_{j=2}^{J+1} \omega_{j} Y_{jt}$$
 
@@ -170,7 +170,23 @@ round(synth.out$solution.w,2)               #Redondea y presenta las variables a
 gaps<- dataprep.out$Y1plot-(
         dataprep.out$Y0plot%*%synth.out$solution.w)  #Esta ecuación es simplemente el tau_1t para todos los periodos.
 ```
-Estos ponderadores son tales que 1) $\sum_{j} \omega_{j}=1$ y 2) $\omega_{j}\leq 0$ para $j=2,...,J+1$.                                                                                                                                                                                                                               
+Estos ponderadores son tales que 1) $\sum_{j} \omega_{j}=1$ y 2) $\omega_{j}\leq 0$ para $j=2,...,J+1$.
+
+
+Como habíamos convenido en la entrada de teoría de control sintético uno de los requerimientos para valorar el vector $W^{*}$ es la regla del *convex hull*, es decir
+
+$$X_{1}-X_{0}W^{*}\approx 0$$
+
+```{r}
+t(X1.1)-(t(X0)%*%synth.out$solution.w)
+```
+
+De acuerdo con la teoría, para obtener mayor aproximación tendriamos que utilizar más información para antes del periodo de intervención.
+
+
+
+
+
 .
 .                                                                                    
 .                                                                                                                                                                                                                               
