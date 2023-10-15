@@ -3,6 +3,7 @@ title: "Control Sintético"
 output: html_notebook
 ---
 
+
 <br><br><br>
  
 <p style="text-align:center;">
@@ -23,6 +24,7 @@ La segunda paquetería, `tidysynth` que esta construida sobre la paquetería ant
 <br><br><br>
 
 ### Paquetería `Synth`
+
 
 Lo primero será instalar la librería:
 ```{r}
