@@ -183,6 +183,31 @@ t(X1.1)-(t(X0)%*%synth.out$solution.w)
 
 De acuerdo con la teoría, para obtener mayor aproximación tendriamos que utilizar más información para antes del periodo de intervención.
 
+Finalmente, para presentar de manera gráfica los datos utilizamos las funciones `path.plot()` para graficar las trayectorias observadas y las sintéticas, y `gaps.plot()` para gráficar las diferencias entre la serie observada y la sintética en todo el horizonte temoporal.
+
+```{r}
+synth.tables <- synth.tab(
+      dataprep.res = dataprep.out,
+      synth.res = synth.out)                       #Presenta los resultados del modelo en una tabla
+print(synth.tables)
+
+
+path.plot(dataprep.res = dataprep.out,
+          synth.res = synth.out,
+          Main = "Trayectorias de control sintético")                  #Grafica las trayectorias de la unidad tratada y su trayectoria sintética
+abline(v = 1991, col = "red", lty = 2)
+text(1991, max(y), "Periodo de \n Tratamiento (T0) ",
+     pos = 2, col ="red")
+
+
+gaps.plot(dataprep.res = dataprep.out,
+          synth.res = synth.out,
+          Main = "Brechas del cotrol sintético")                  #Grafica las discrepancias entre la unidad tratada y su trayectoria sintética
+abline(v = 1991, col = "red", lty = 2)
+text(1991, max(y), "Periodo de \n Tratamiento (T0) ",
+     pos = 2, col ="red")
+
+```
 
 
 
