@@ -25,6 +25,7 @@ La segunda paquetería, `tidysynth` que esta construida sobre la paquetería ant
 
 ### Paquetería `Synth`
 
+ [Aquí](https://rpubs.com/CarlosCarrillol/1099110) está el código corrido en R-pubs
 
 Lo primero será instalar la librería:
 ```{r}
