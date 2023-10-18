@@ -213,6 +213,40 @@ text(1991, max(y), "Periodo de \n Tratamiento (T0) ",
 ```
 
 
+### Paquetería `tidysynth`
+
+Ahora vamos a trabajar con la libreria `tidysynth`, lo pimero que hay que hacer es instalar la libreria:
+
+
+```{r}
+library(tidysynth)
+```
+
+
+La base de datos que vamos a utilizar proviene de Abadie et al. (2010). La base de datos se compone de la siguiente manera:
+
+
+* La columna `state` de clase *"character*" contiene los nombres de los distintos estados de Estados Unidos,
+
+* la columna `numeric` de clase "*numeric*" contiene el año en que se realizan las observaciones desde el año 1970 al año 2000,
+
+* la columna `cigsale` de clase "*numeric*" contiene el total de la venta de cigarrillos por estado en miles,
+
+* la columna `lnincome` de clase "*numeric*" contiene el logaritmo del ingreso personal de cada estado
+
+* la columna `beer` de clase "*numeric*" contiene el consumo de cerveza per-capita
+
+* la columna `age15to24` de clase "*numeric*" contiene contiene el porcentaje de la población entre 15 y 24 años
+
+* la columna `retprice` de clase "*numeric*" contiene el precio promedio de *retail* de los cigarrillos.
+
+
+
+```{r}
+data("smoking")
+```
+
+
 
 
 .
