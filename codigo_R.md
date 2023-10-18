@@ -230,7 +230,7 @@ La base de datos que vamos a utilizar proviene de Abadie et al. (2010). La base 
 
 * la columna `numeric` de clase "*numeric*" contiene el año en que se realizan las observaciones desde el año 1970 al año 2000,
 
-* la columna `cigsale` de clase "*numeric*" contiene el total de la venta de cigarrillos por estado en miles,
+* la columna `cigsale` de clase "*numeric*" contiene el total de la venta de cigarrillos per-capita por estado,
 
 * la columna `lnincome` de clase "*numeric*" contiene el logaritmo del ingreso personal de cada estado
 
