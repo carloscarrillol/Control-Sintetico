@@ -240,7 +240,7 @@ La base de datos que vamos a utilizar proviene de Abadie et al. (2010). La base 
 
 * la columna `retprice` de clase "*numeric*" contiene el precio promedio de *retail* de los cigarrillos.
 
-
+En este ejemplo, el *outcome* de interés es la venta de cigarrillos per-capita, y la unidad de tratamiento es el estado de California, mientras que las unidades de conrrol serán el resto de los estaods de Estados Unidos. Lo que se intenta estimar es la trayectoria sintética de la venta de cigarrillos en California de no haberse aplicado el tratamiento, que es, la llamada *Proposition 99* que consistió en un aumento de 25 centavos por paquete a través de un impuesto. 
 
 ```{r}
 data("smoking")
