@@ -246,7 +246,51 @@ En este ejemplo, el *outcome* de interés es la venta de cigarrillos per-capita,
 data("smoking")
 ```
 
+Para preparar los datos como en la paquetería `Synth` utilizamos la funciónm `synthetic_control()` de la manera siguiente, la matriz predictores $X_{0}$ y $X_{1}$ con la función `generate_predictors()`, y generar los ponderadores con la función `generate_controls()`. Dado que la paqueteria es una implementación `tidy` la concatenación de las funciones se hace a través del comando `%>%`, como se muestra a continuación:
 
+
+```{r}
+smoking_out <-
+  
+  smoking %>%                                      #Este es el data frame que vamos a utilizar
+  synthetic_control(outcome = cigsale,             #El outcome de interés
+                    unit = state,                  #Vamos a utilizar la columna state como indice de las unidades
+                    time = year,                   #Con indice de tiempo de la columna year
+                    i_unit = "California",         #La unidad de tratamiento j=1
+                    i_time = 1988,                 #El periodo de tratamiento T0
+                    generate_placebos=T            #Generaremos placebos para hacer inferencia.
+                    ) %>%
+  
+  # Vamos a generar los predictores agregados para ajustar los ponderadores:
+  # promedio del logaritmo del ingreso, el precio de los cigarrillos y la 
+  # prporcion de la población entre 15 y 24 años de 1980 - 1988
+  
+  generate_predictor(time_window = 1980:1988,                 # Los periodos hasta T0=1988
+                     ln_income = mean(lnincome, na.rm = T),   #log del ingreso
+                     ret_price = mean(retprice, na.rm = T),   #el precio de los cigarrillos
+                     youth = mean(age15to24, na.rm = T)) %>%  #proporcion de la pob entre 15 - 24 años
+  
+  # promedio del consumo de cerveza en el donnor pool de 1984 - 1988
+  generate_predictor(time_window = 1984:1988,
+                     beer_sales = mean(beer, na.rm = T)) %>%
+  
+  # las ventas de cigarrillos atrasadas 
+  generate_predictor(time_window = 1975,
+                     cigsale_1975 = cigsale) %>%
+  generate_predictor(time_window = 1980,
+                     cigsale_1980 = cigsale) %>%
+  generate_predictor(time_window = 1988,
+                     cigsale_1988 = cigsale) %>%
+  
+  
+  # genera los ponderadores
+  generate_weights(optimization_window = 1970:1988, # el periodo para optimización de los ponderadores
+                   margin_ipop = .02,sigf_ipop = 7, bound_ipop = 6 # opciones de optimización
+  ) %>%
+  
+  # Generar el control sintético
+  generate_control()
+```
 
 
 .
