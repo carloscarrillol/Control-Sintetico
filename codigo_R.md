@@ -274,7 +274,7 @@ smoking_out <-
   generate_predictor(time_window = 1984:1988,
                      beer_sales = mean(beer, na.rm = T)) %>%
   
-  # las ventas de cigarrillos atrasadas 
+  # las ventas de cigarrillos atrasadas como predictores especiales
   generate_predictor(time_window = 1975,
                      cigsale_1975 = cigsale) %>%
   generate_predictor(time_window = 1980,
