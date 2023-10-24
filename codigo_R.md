@@ -349,6 +349,45 @@ En la tabla se enlistan las diferentes variables, tanto para el *outcome* de int
 
 
 
+### Inferencia
+
+En cuanto a la inferencia, el método se basa en repetir el método para cada donante en el grupo de donantes exactamente de la misma manera que se hizo para la unidad tratada, es decir, generando controles sintéticos de placebo. Al establecer `generate_placebos = TRUE` al inicializar la tubería 'synth' con `synthetic_control()`, los casos de placebo se generan automáticamente al construir el control sintético de interés. Esto facilita la exploración de cuán única es la diferencia entre la unidad observada y la unidad sintética en comparación con los placebos
+
+```{r}
+smoking_out %>% 
+  plot_placebos()
+```
+
+![000011](https://github.com/carloscarrillol/Control-Sintetico/assets/122711749/396739f0-94ac-4579-8ffe-b5708d9f0ae3)
+
+
+Ten en cuenta que la función `plot_placebos()` automáticamente elimina cualquier placebo que se ajuste mal a los datos en el período previo a la intervención. La razón para hacerlo es puramente visual: esas unidades tienden a distorsionar la escala al trazar los placebos. Para realizar la eliminación, la función examina el error cuadrático medio de predicción (MSPE) en el período previo a la intervención (es decir, una métrica que refleja cuán bien se ajusta el control sintético a la serie de tiempo de resultados observados en el período previo a la intervención). Si un control de placebo tiene un MSPE que es dos veces mayor que el caso objetivo (por ejemplo, "California"), entonces se elimina. Para desactivar este comportamiento, establece `prune = FALSE`.
+
+```{r}
+smoking_out %>% plot_placebos(prune = FALSE)
+```
+
+![000010](https://github.com/carloscarrillol/Control-Sintetico/assets/122711749/9966cd60-9a79-4b87-b623-0569f3b3e522)
+
+
+Finalmente, Adabie et al. en 2010 describen una manera de construir los valores p exactos de Fisher dividiendo el MSPE posterior a la intervención por el MSPE anterior a la intervención y luego clasificando todos los casos en orden descendente según esta proporción. Se construye un valor p tomando la clasificación entre el total de casos. La idea subyacente es que si el control sintético se ajusta bien a la serie de tiempo observada (bajo MSPE en el período previo) y se desvía en el período posterior (alto MSPE en el período posterior), entonces hay un efecto significativo debido a la intervención. Si la intervención no tuvo efecto, entonces el período posterior y el período previo deberían continuar mapeándose bastante bien, lo que daría como resultado una proporción cercana a 1. Si las unidades de placebo se ajustan de manera similar a los datos, entonces no podemos rechazar la hipótesis nula de que la intervención no tuvo efecto.
+
+Esta proporción se puede representar fácilmente utilizando `plot_mspe_ratio()`, lo que ofrece información sobre la rareza del caso en el que la intervención realmente ocurrió.
+
+```{r}
+smoking_out %>% plot_mspe_ratio()
+```
+
+![000012](https://github.com/carloscarrillol/Control-Sintetico/assets/122711749/7305727a-83b8-477a-8241-ee07e7176553)
+
+
+
+
+
+
+
+
+
 .
 .
 .
