@@ -329,6 +329,25 @@ smoking_out %>% plot_weights()
 
 De acuerdo con Abadie et. al., (2010) el método de control sintético produce ponderadores iguales a cero para la mayoría de las unidades del *donor pool*.
 
+Otra manera de presentar los datos es através de la siguiente tabla:
+
+```{r}
+smoking_out %>% grab_balance_table()
+```
+
+variable     | California | synthetic_California | donor_sample |
+-------------|------------|----------------------|--------------|
+ln_income    | 10.0765586 |	  9.8534864          |	 9.8291968	|
+ret_price    | 89.4222234 |	 89.3908482	         |  87.2660819	|
+youth        |	0.1735324 |	  0.1736054          |	 0.1725101	|
+beer_sales   | 24.2800003 |	 24.2224860          |	23.6552632	|
+cigsale_1975 |127.0999985 |	126.9914177          | 136.9315790	|
+cigsale_1980 |120.1999969 | 120.2204841	         | 138.0894737	|
+cigsale_1988 | 90.0999985 |	 91.3888620	         | 113.8236837	|
+
+En la tabla se enlistan las diferentes variables, tanto para el *outcome* de interés como para sus predictores, para la unidad de tratamiento, la unidad sintética y la muestra de donantes.
+
+
 
 .
 .
