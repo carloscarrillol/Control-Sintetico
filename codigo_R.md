@@ -305,11 +305,15 @@ smoking_out %>% plot_trends()
 ```
 ![000014](https://github.com/carloscarrillol/Control-Sintetico/assets/122711749/313a5ec2-8f61-4de0-abc0-e6708a1343a1)
 
+
+Además, podemos graficar las diferencias absolutas entre la serie observada y la serie sintética:
+
+```{r}
+smoking_out %>% plot_differences()
+```
+![000010](https://github.com/carloscarrillol/Control-Sintetico/assets/122711749/9969f3e8-f6fb-4b3a-92ac-c303f6bab8e6)
+
+
 .
-.                                                                                    
-.                                                                                                                                                                                                                               
-                                                                                                                                                                                                                               
-                                                                                                                                                                                                                               
-                                                                                                                                                                                                                               
-                                                                                                                                                                                                                               
-                                                                                                                                                                                                                               
+.
+.
