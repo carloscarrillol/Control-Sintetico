@@ -1,20 +1,20 @@
----
-title: "Control Sintético"
-output: html_notebook
----
-
-
 <br><br><br>
- 
-<p style="text-align:center;">
-*Quiero que quede claro que no tengo idea de lo que estoy apunto de escribir, únicamente es una compilación de documentos que he encontrado sobre modelado de control sintético. Por lo tanto, descubriremos juntos y al mismo tiempo (eso no es verdad) que hace cada una de las siguientes lineas. Por favor no juzgues, tuve la decencia de advertirte.*
-</p>
 
-<p style="text-align:center;">
--C
-</p>
+
+<div align="center">
+  <h1>Control Sintético</h1>
+</div>
+ <br><br><br>
+<div align="center">
+  <p><em> Quiero que quede claro que no tengo idea de lo que estoy apunto de escribir, únicamente es una compilación de documentos que he encontrado sobre modelado de control sintético. Por lo tanto, descubriremos juntos y al mismo tiempo (eso no es verdad) que hace cada una de las siguientes lineas. Por favor no juzgues, tuve la decencia de advertirte. </em></p>
+</div>
+<div align="center">
+  <p>-C</p>
+</div>
+
 
 <br><br><br><br><br><br>
+
 
 Para el modelado de control sintético utilizarémos dos métodos con dos paqueterias distintas el primero 
 `Synth` de Jens Hainmueller and Alexis Diamond de las univesidades Stanford y Harvard, respectivamente. La documentación al respecto se encuentra [aqui](https://cran.r-project.org/web/packages/Synth/Synth.pdf. ) 
@@ -312,6 +312,22 @@ Además, podemos graficar las diferencias absolutas entre la serie observada y l
 smoking_out %>% plot_differences()
 ```
 ![000010](https://github.com/carloscarrillol/Control-Sintetico/assets/122711749/9969f3e8-f6fb-4b3a-92ac-c303f6bab8e6)
+
+
+Los siguientes histogramas muestral la ponderación que el programa le da a las diferentes unidades, siendo Utah el que recibe mayor ponderación y Conecticut el que menos pero estrictamente positivo. Además, del lado derecho se muestran las ponderaciones para las diferntes variables en la matriz de predictores para todas las unidades $[X_{0}:X_{1}]$
+
+Recoremos que tanto este método como el de la paquetería `Synth` generan los pesos bajo las siguientes condiciones:
+
+$$\sum_{j=2}^{J+1}\omega_{j}=1$$
+ y 
+$$\omega_{j}\geq 0 \quad \text{con} \quad j=2,...,J+1$$
+```{r}
+smoking_out %>% plot_weights()
+```
+
+![000010](https://github.com/carloscarrillol/Control-Sintetico/assets/122711749/5ebb76d4-c7a1-4888-873a-a02d26f4fa63)
+
+De acuerdo con Abadie et. al., (2010) el método de control sintético produce ponderadores iguales a cero para la mayoría de las unidades del *donor pool*.
 
 
 .
