@@ -292,6 +292,11 @@ smoking_out <-
   generate_control()
 ```
 
+Para graficar las trayectorias de las series observadas y la serie sintética del problema anterior utilizamos el siguiente comando:
+
+```{r}
+smoking_out %>% plot_trends() 
+```
 
 .
 .                                                                                    
