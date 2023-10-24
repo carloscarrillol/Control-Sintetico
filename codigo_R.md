@@ -213,6 +213,12 @@ text(1991, max(y), "Periodo de \n Tratamiento (T0) ",
 ```
 
 
+![00001c](https://github.com/carloscarrillol/Control-Sintetico/assets/122711749/88dc25f1-dc05-4b3f-b7ac-d3cfbc43c9e0)
+
+
+![000022](https://github.com/carloscarrillol/Control-Sintetico/assets/122711749/4987cd22-b793-4d9c-98f0-f17a7db6e840)
+
+
 ### Paquetería `tidysynth`
 
 Ahora vamos a trabajar con la libreria `tidysynth`, lo pimero que hay que hacer es instalar la libreria:
@@ -297,6 +303,7 @@ Para graficar las trayectorias de las series observadas y la serie sintética de
 ```{r}
 smoking_out %>% plot_trends() 
 ```
+![000014](https://github.com/carloscarrillol/Control-Sintetico/assets/122711749/313a5ec2-8f61-4de0-abc0-e6708a1343a1)
 
 .
 .                                                                                    
