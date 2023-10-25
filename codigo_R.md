@@ -383,11 +383,83 @@ smoking_out %>% plot_mspe_ratio()
 
 
 
+Un segundo ejemplo:
+
+
+```{r}
+library(Synth)
+data("synth.data")
+
+synth.data <- filter(synth.data, 
+                     year <= 1996)
+  
+synth.data.out <- 
+  synth.data %>% 
+  synthetic_control(outcome = Y,
+                    unit = name,
+                    time = year,
+                    i_unit = "treated.region",
+                    i_time = 1991,
+                    generate_placebos = T
+                    ) %>%
+  generate_predictor(time_window = 1980:1991,
+                   x1 = mean(X1, na.rm = T),
+                   x2 = mean(X2, na.rm = T),
+                   x3 = mean(X3, na.rm = T)
+                   )  %>%
+  generate_predictor(time_window = 1991,
+                     Y_91 = Y) %>%
+  generate_predictor(time_window = 1985,
+                     Y_85 = Y) %>%
+  generate_predictor(time_window = 1980,
+                     Y_80 = Y) %>%
+  generate_weights(optimization_window = 1970:1991,
+                   margin_ipop = .02, sigf_ipop = 7, 
+                   bound_ipop = 6
+                   ) %>%
+  generate_control()
+
+synth.data.out %>%
+  plot_trends()
+```
+
+![000035](https://github.com/carloscarrillol/Control-Sintetico/assets/122711749/89212be7-8fbd-42ab-ab96-2158bb8c12c5)
+
+
+```{r}
+synth.data.out %>%
+  plot_differences()
+```
+![000002](https://github.com/carloscarrillol/Control-Sintetico/assets/122711749/99994a5b-21d4-4e0d-9957-5dbd5c3d89f1)
+
+```{r}
+synth.data.out %>%
+  plot_weights()
+```
+
+![000002](https://github.com/carloscarrillol/Control-Sintetico/assets/122711749/b706fbe3-a460-4804-a5d5-fbe8f7220b9b)
+
+```{r}
+synth.data.out %>%
+  grab_balance_table()
+```
+
+
+variable | treated.region | synthetic_treated.region | donor_sample |
+---------|----------------|--------------------------|--------------|
+x1	     |  0.267079      |  0.2578198               |	0.2587789	  |
+x2	     | 16.200000      |	16.2031799	             | 16.3297619	  |
+x3	     | 21.725000      | 22.3468529	             | 22.8750000   |	
+Y_91	   |115.000000	    |115.0197237	             |117.3714273	  |
+Y_85	   |128.800003	    |128.1305395	             |132.4571424   |	
+Y_80	   |134.000000      |134.0382530	             |145.7571422   |	
 
 
 
 
 
-.
-.
-.
+
+
+
+
+
